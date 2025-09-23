@@ -4,9 +4,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Random number</title>
-    <link rel="shortcut icon" href="" />
+    <link rel="shortcut icon" href="/dist/assets/dice.png" />
+    <link rel="stylesheet" href="/dist/style/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="/dist/style/style.css" />
   </head>
   <body>
+    <main>
+      <h1 class="main__title">Угадай число</h1>
+      <div class="table">
+        <div class="subtitle">
+          Компьютер загадал число от <span class="start__range"></span> до
+          <span class="end__range"></span>. Ваша задача его угадать.
+        </div>
+        <div class="input-group input-group-sm mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-sm"
+            >Ваше число:</span
+          >
+          <input
+            type="text"
+            value=""
+            class="form-control enter__number"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-sm"
+          />
+        </div>
+        <div class="list__buttons">
+          <button type="button" class="btn btn-primary check__btn">
+            Проверить</button
+          ><button type="button" class="btn btn-primary new__number__btn">
+            Загадать новое число
+          </button>
+        </div>
+        <div class="history__block">
+          <span>История:</span>
+          <span class="history__list"></span>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+    <script src="/dist/style/bootstrap/js/bootstrap.js"></script>
     <script src="/dist/js/main.js"></script>
   </body>
 </html>
