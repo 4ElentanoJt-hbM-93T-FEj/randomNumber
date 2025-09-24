@@ -45,7 +45,7 @@ getNewNumberBtn.addEventListener("click", () => {
   getNumberInput.value = "";
   getHistoryBlock.innerHTML = "";
   randomNumber = (Math.random() * 100).toFixed();
-  attempts = 5;
+  attempts = Math.log2(endRange - startRange + 1).toFixed();
   getAttemptsHearts();
   console.log("История очищена и создано новое число");
   console.log(randomNumber);
