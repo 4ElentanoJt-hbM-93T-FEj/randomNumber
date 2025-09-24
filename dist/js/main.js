@@ -3,6 +3,7 @@ const startRange = 1;
 const endRange = 100;
 let historyNumber = [];
 let randomNumber = (Math.random() * 100).toFixed();
+let attempts = 5;
 console.log(randomNumber);
 
 const startRangeElement = document.querySelector(".start__range");
@@ -31,6 +32,7 @@ getCheckNumberBtn.addEventListener("click", () => {
     // getHistoryBlock.innerHTML += `${getNumberInput.value}, `;
     console.log(parseInt(getNumberInput.value));
     getNumberInput.value = "";
+    attempts -= 1;
   }
 });
 
