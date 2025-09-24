@@ -64,6 +64,20 @@ main {
 
 .history__block {
   margin-top: 10px;
+  font-size: 18px;
+}
+
+.attempts__list {
+  margin: 0 auto;
+}
+
+.attempts {
+  width: 40px;
+  height: 40px;
+}
+
+.failed__video {
+  margin: 30px 0px;
 }
 
 /* footer {
