@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Random number</title>
+    <title>Случайное число</title>
     <link rel="shortcut icon" href="/dist/assets/dice.png" />
     <link rel="stylesheet" href="/dist/style/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" href="/dist/style/style.css" />
@@ -11,16 +11,6 @@
   <body>
     <main>
       <h1 class="main__title">Угадай число</h1>
-      <!-- <video playsinline autoplay muted loop preload="auto">
-        <source src="/dist/assets/sticker.webm" type="video/webm" />
-      </video> -->
-      <!-- <dotlottie-wc
-        src="https://lottie.host/2492031e-c1fe-4341-ad05-df948b1d1440/QeBJYrLD5T.lottie"
-        style="width: 300px; height: 300px"
-        autoplay
-        loop
-      ></dotlottie-wc> -->
-      <div class="attempts__list"></div>
       <div class="table">
         <div class="subtitle">
           Компьютер загадал число от <span class="start__range"></span> до
@@ -33,6 +23,7 @@
           <input
             type="text"
             value=""
+            name="enter__number"
             class="form-control enter__number"
             aria-label="Sizing example input"
             aria-describedby="inputGroup-sizing-sm"
@@ -46,16 +37,31 @@
           </button>
         </div>
         <div class="history__block">
-          <span>История:</span>
-          <span class="history__list"></span>
+          <div class="history__title">История:</div>
+          <div class="history__list"></div>
+        </div>
+        <div class="progress__title">Ваш прогресс:</div>
+        <div class="progress">
+          <div
+            class="progress-bar progress-bar-striped"
+            role="progressbar"
+            style="width: 100%"
+            aria-valuenow="10"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          ></div>
+        </div>
+      </div>
+      <div class="table__result">
+        <div class="result__subtitle"></div>
+        <div class="result__body">
+          <button type="button" class="btn btn-primary restart__btn">
+            Загадать новое число
+          </button>
         </div>
       </div>
     </main>
     <script src="/dist/style/bootstrap/js/bootstrap.js"></script>
-    <script
-      src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js"
-      type="module"
-    ></script>
     <script src="/dist/js/main.js"></script>
   </body>
 </html>
