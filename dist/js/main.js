@@ -68,6 +68,7 @@ function newNumber() {
   progressBar.style.width = "100%";
   randomNumber = +(Math.random() * 100).toFixed();
   console.log(randomNumber);
+  getNumberInput.focus();
   attempts = Math.log2(endRange - startRange + 1).toFixed();
 }
 
