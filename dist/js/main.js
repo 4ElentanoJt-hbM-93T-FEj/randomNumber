@@ -1,8 +1,10 @@
 "use strict";
 const startRange = 1;
-const endRange = 10;
+const endRange = 100;
 let historyNumber = [];
-let randomNumber = +(Math.random() * 100).toFixed(); //todo: исправить
+let randomNumber = Math.round(
+  startRange + Math.random() * (endRange - startRange)
+);
 let maxAttempts = Math.log2(endRange - startRange + 1).toFixed();
 let attempts = Math.log2(endRange - startRange + 1).toFixed();
 const startRangeElement = document.querySelector(".start__range");
@@ -39,6 +41,7 @@ function checkNumber() {
       resultMessage.innerHTML = `Вы ${
         randomNumber == +getNumberInput.value ? "победили" : "проиграли"
       }, загаданное число было: ${randomNumber}`;
+      restartGameBtn.focus();
     }
     getNumberInput.value = "";
   }
@@ -48,11 +51,14 @@ function restartGame() {
   historyNumber = [];
   getNumberInput.value = "";
   getHistoryBlock.innerHTML = "";
-  randomNumber = +(Math.random() * 100).toFixed();
+  randomNumber = Math.round(
+    startRange + Math.random() * (endRange - startRange)
+  );
   attempts = Math.log2(endRange - startRange + 1).toFixed();
   progressBar.style.width = "100%";
   mainDashboard.style.display = "block";
   restartDashboard.style.display = "none";
+  getNumberInput.focus();
 }
 
 function newNumber() {
@@ -89,5 +95,11 @@ restartGameBtn.addEventListener("click", () => restartGame());
 restartGameBtn.addEventListener("keyup", (event) => {
   if (event.code === "Enter") {
     restartGame();
+  }
+});
+
+getNumberInput.addEventListener("keyup", (event) => {
+  if (event.code === "Enter") {
+    checkNumber();
   }
 });
