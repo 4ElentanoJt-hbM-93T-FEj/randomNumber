@@ -20,6 +20,8 @@ const mainDashboard = document.querySelector(".table");
 const restartDashboard = document.querySelector(".table__result");
 const resultMessage = document.querySelector(".result__subtitle");
 const restartGameBtn = document.querySelector(".restart__btn");
+const bodyElement = document.querySelector("body");
+
 console.log(randomNumber);
 function checkNumber() {
   if (
@@ -44,6 +46,7 @@ function checkNumber() {
       restartGameBtn.focus();
     }
     getNumberInput.value = "";
+    getNumberInput.focus();
   }
 }
 
@@ -95,6 +98,12 @@ getNewNumberBtn.addEventListener("click", () => {
 restartGameBtn.addEventListener("click", () => restartGame());
 restartGameBtn.addEventListener("keyup", (event) => {
   if (event.code === "Enter") {
+    restartGame();
+  }
+});
+
+bodyElement.addEventListener("keyup", (event) => {
+  if (event.code === "Escape") {
     restartGame();
   }
 });
