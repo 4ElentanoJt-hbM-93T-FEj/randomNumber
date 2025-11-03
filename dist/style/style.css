@@ -138,3 +138,10 @@ main {
   min-height: 50px;
   max-width: 400px;
 }
+
+.error__msg {
+  display: none;
+  text-align: center;
+  margin: 10px 0px 10px 0;
+  color: red;
+}

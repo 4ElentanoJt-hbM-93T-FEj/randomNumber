@@ -1,12 +1,12 @@
 "use strict";
-const startRange = 1;
-const endRange = 100;
+const startRange = 100;
+const endRange = 140;
 let historyNumber = [];
 let randomNumber = Math.round(
   startRange + Math.random() * (endRange - startRange)
 );
-let maxAttempts = Math.log2(endRange - startRange + 1).toFixed();
-let attempts = Math.log2(endRange - startRange + 1).toFixed();
+let maxAttempts = Math.ceil(Math.log2(endRange - startRange + 1));
+let attempts = Math.ceil(Math.log2(endRange - startRange + 1));
 const startRangeElement = document.querySelector(".start__range");
 startRangeElement.innerHTML = startRange;
 const endRangeElement = document.querySelector(".end__range");
@@ -21,8 +21,10 @@ const restartDashboard = document.querySelector(".table__result");
 const resultMessage = document.querySelector(".result__subtitle");
 const restartGameBtn = document.querySelector(".restart__btn");
 const bodyElement = document.querySelector("body");
+const errorMsg = document.querySelector(".error__msg");
 
 console.log(randomNumber);
+console.log(`Tries: ${attempts}`);
 function checkNumber() {
   if (
     getNumberInput.value &&
@@ -47,11 +49,15 @@ function checkNumber() {
     }
     getNumberInput.value = "";
     getNumberInput.focus();
+    errorMsg.style.display = "none";
+  } else {
+    errorMsg.style.display = "block";
   }
 }
 
 function restartGame() {
   historyNumber = [];
+  errorMsg.style.display = "none";
   getNumberInput.value = "";
   getHistoryBlock.innerHTML = "";
   randomNumber = Math.round(
